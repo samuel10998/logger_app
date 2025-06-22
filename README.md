@@ -26,7 +26,7 @@ Opis suborov:
 
 6. index.php	Aplikácia – loguje každý HTTP request do requests.log
 7. Dockerfile   Vytvára image s PHP a našou aplikáciou
-"
+
 BONUS:
 Upravili sme subory configmap.yaml, deployment.yaml, index.php, a pridali secret.yaml
 Prikazy pouzite:
