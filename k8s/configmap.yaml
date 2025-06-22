@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logger-config
+  namespace: exam-samuel
+data:
+  LOG_DIR: "/logs"

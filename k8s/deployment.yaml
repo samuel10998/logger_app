@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logger-app
+  namespace: exam-samuel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logger
+  template:
+    metadata:
+      labels:
+        app: logger
+    spec:
+      containers:
+        - name: php-logger
+          image: php-logger:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: logger-config
+          volumeMounts:
+            - name: logger-storage
+              mountPath: /logs
+      volumes:
+        - name: logger-storage
+          persistentVolumeClaim:
+            claimName: logger-pvc
